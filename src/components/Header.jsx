@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle'
 
 function Header() {
   return (
@@ -8,6 +9,7 @@ function Header() {
         <Link to="/about">About</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/contact">Contact</Link>
+        <ThemeToggle/>
       </nav>
     </header>
   )
