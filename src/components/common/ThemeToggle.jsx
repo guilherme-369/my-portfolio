@@ -1,26 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react'; // Use lucide-react ou Heroicons
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.theme || 'light');
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove('dark');
     }
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-md border hover:bg-gray-100 dark:hover:bg-gray-700"
-    >
-      {theme === "light" ? "🌙" : "☀️"}
+    <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 }
