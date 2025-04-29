@@ -1,27 +1,31 @@
-import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import Contact from './pages/Contact'
-
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/ProjectsPage';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Header />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <main className="flex flex-col items-center justify-center">
+        <section id="home" className="min-h-screen flex items-center">
+          <Home />
+        </section>
+        <section id="about" className="min-h-screen flex items-center">
+          <About />
+        </section>
+        <section id="projects" className="min-h-screen flex items-center">
+          <Projects />
+        </section>
+        <section id="contact" className="min-h-screen flex items-center">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
